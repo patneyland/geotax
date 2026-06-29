@@ -16,8 +16,8 @@ GeoTax builds clean, reusable map templates so I don't rebuild a US map from scr
 
 **The templates.** Two builder scripts download the Census Bureau's `cb_2018_us_state_20m` state boundaries, drop Puerto Rico, and write out reusable GeoJSON files you can color however you like:
 
-- `state_map.json` — state shapes, no labels.
-- `state_map_w_abb.json` — state shapes plus longitude/latitude points for placing each state's two-letter abbreviation, with small boxes added to the right edge so crowded states in the Northeast (DE, DC, MD, MA, NJ, RI, VT, NH) get a readable label off to the side.
+- `state_map.json`: state shapes, no labels.
+- `state_map_w_abb.json`: state shapes plus longitude/latitude points for placing each state's two-letter abbreviation, with small boxes added to the right edge so crowded states in the Northeast (DE, DC, MD, MA, NJ, RI, VT, NH) get a readable label off to the side.
 
 **The Alaska and Hawaii repositioning.** This is the part that took real work. Census state boundaries put Alaska and Hawaii where they actually are, which makes a normal US map mostly empty ocean. The builder scripts walk the raw coordinate arrays and do the math by hand: Alaska's positive longitudes (the Aleutians cross the antimeridian) get unwrapped to negative values, then the whole state is shrunk, slid east and north toward the lower 48, and stretched vertically to look right at the smaller scale. Hawaii gets scaled up, then moved into the standard inset slot below the mainland. The result is the familiar "inset" US layout, baked into the GeoJSON so you never have to redo it.
 
@@ -34,15 +34,15 @@ GeoTax builds clean, reusable map templates so I don't rebuild a US map from scr
 
 ## Maps
 
-**State tax-system choropleth** — the payoff map. States shaded by tax category, AK/HI repositioned, small eastern states labeled with boxes.
+**State tax-system choropleth**: the payoff map. States shaded by tax category, AK/HI repositioned, small eastern states labeled with boxes.
 
 ![State tax-system choropleth](assets/state-tax-map.png)
 
-**Plain state template** (`state_map.json`) — the base layer, ready to color from any dataset.
+**Plain state template** (`state_map.json`): the base layer, ready to color from any dataset.
 
 ![Plain state template](assets/map-demo-states.png)
 
-**Abbreviation template** (`state_map_w_abb.json`) — same shapes, with the inset boxes on the right edge that hold labels for the small Northeast states.
+**Abbreviation template** (`state_map_w_abb.json`): same shapes, with the inset boxes on the right edge that hold labels for the small Northeast states.
 
 ![Abbreviation template with inset boxes](assets/map-demo-states-abbr.png)
 
@@ -118,4 +118,4 @@ I do tax research on a financial-economics and accounting background, and a lot 
 
 ## Author
 
-Patrick Neyland — [Neyland Solutions](https://neylandsolutions.com)
+Patrick Neyland, [Neyland Solutions](https://neylandsolutions.com)
